@@ -1,0 +1,16 @@
+%tr{id: dom_id(post), class: dom_class(post) }
+  %td= check_box_tag 'post_ids[]', post.id, false, id: "post_id_#{post.id}"
+  %td
+    %strong= link_to post.title, edit_admin_blog_post_path(post)
+    .row-actions
+      %span.edit= link_to 'Edit', edit_admin_blog_post_path(post)
+      %span.delete= link_to 'Delete', admin_blog_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }
+      %span.view
+        = link_to blog_post_path(post.created_at.year, post.created_at.month, post.created_at.day, post.id), 'View', target: '_blank'
+  %td= post.author
+  %td
+  %td -
+  %td
+    Published
+    %br
+    = post.created_at.to_formatted_s(:dmy)

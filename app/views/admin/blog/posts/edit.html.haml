@@ -1,0 +1,4 @@
+%h1 Edit Blog Post
+
+= form_for @post, url: admin_blog_post_path(@post) do |f|
+  = render 'form', f: f

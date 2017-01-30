@@ -1,0 +1,16 @@
+.actions
+  = button_link_to 'New Blog Post', new_admin_blog_post_path
+
+%h1 Posts
+
+%table#blog_posts.listing
+  %thead
+    %tr
+      %th.select= check_box_tag :all
+      %th.title Title
+      %th.author Author
+      %th.categories Categories
+      %th.comments Comments
+      %th.date Date
+  %tbody
+    = render partial: 'admin/blog/posts/post', collection: @posts
